@@ -142,6 +142,23 @@ $render = new RenderUnicorn();
 $renderName = new RenderName();
 $renderColor = new RenderColor();
 
+$chosen_unicorn = [
+    "name" => "",
+    "color" => "",
+    "age" => "",
+];
+
+    if(isset($_GET["name"])) {
+        $sanitized_name = filter_var($_GET["name"], FILTER_SANITIZE_NUMBER_INT);
+        $chosen_name = filter_var($sanitized_name, FILTER_VALIDATE_INT);
+
+        foreach($allUnicorns as $unicorn) {
+            if($find_unicorn["name"] === $chosen_name) {
+                $chosen_unicorn = $find_unicorn;
+            }
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -153,13 +170,33 @@ $renderColor = new RenderColor();
     <title>Unicorn Hotell</title>
 </head>
 <body>
-    <h1>🦄Unicorns🦄</h1>
+    <section>
+        <h1>🦄Unicorns🦄</h1>
+        <ol>
+            <?php
+                foreach($allUnicorns as $unicorn) {
+                    echo "<li>
+                            <a href='index.php?name={$unicorn["name"]}'></a>
+                        </li>";
+                }
+            ?>
+        </ol>
+    </section>
+        <h3>Select Unicorn:</h3>
+        <ul style="list-style: none">
+            <li><strong>Namn:</strong> <?= $chosen_unicorn["name"] ?></li><br>
+            <li><strong>Age:</strong> <?= $chosen_unicorn["age"] ?></li><br>
+            <li><strong>Color:</strong> <?= $chosen_unicorn["color"] ?></li><br>
+        </ul>
+    <section>
+   
+    <h3>All Unicorns</h3>
     <?php
     foreach($allUnicorns->getUnicorns() as $unicorn) {
         echo $render->renderUnicornInfo($unicorn);
     }
     ?>
- <h1>List Name</h1>
+ <h3>List Name</h3>
  <ol>
     <?php
     foreach($allUnicorns->getUnicorns() as $unicorn) {
@@ -168,7 +205,7 @@ $renderColor = new RenderColor();
     ?>
 </ol>
 
- <h1>List Color</h1>
+ <h3>List Color</h3>
  <ol>
     <?php
     foreach($allUnicorns->getUnicorns() as $unicorn) {
@@ -176,5 +213,6 @@ $renderColor = new RenderColor();
     }
     ?>
 </ol>
+</section>
 </body>
 </html>

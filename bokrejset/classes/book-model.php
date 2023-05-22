@@ -18,15 +18,15 @@ class BookModel extends DB
 
     public function getAllBooksWithAuthors()
     {
-        $sql = "SELECT books.title,books.year,authors.first_name,authors.last_name FROM books JOIN authors ON books.author_id=authors.id";
+        $sql = "SELECT books.title,books.year,books.pages,books.subject,authors.first_name,authors.last_name FROM books JOIN authors ON books.author_id=authors.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function addBook(string $title, int $year, int $authorId)
+    public function addBook(string $title, int $year, int $pages, string $subject, int $authorId)
     {
-        $sql = "INSERT INTO {$this->table} (title,year,author_id) VALUES (?,?,?)";
+        $sql = "INSERT INTO {$this->table} (title,year,author_id) VALUES (?,?,?,?,?)";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute([$title, $year, $authorId]);
+        $statement->execute([$title, $year, $pages, $subject, $authorId]);
     }
 }

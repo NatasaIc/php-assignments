@@ -8,8 +8,6 @@ $pdo = require 'partials/connect.php';
 $userModel = new UserModel($pdo);
 $userView = new UserView();
 
-// ==============================================
-// Skapa vy nedan
 
 include 'partials/header.php';
 include 'partials/nav.php';

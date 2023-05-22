@@ -7,7 +7,7 @@ class BookView
     {
         echo "<ul>";
         foreach ($books as $book) {
-            echo "<li>{$book['title']} ({$book['year']})</li>";
+            echo "<li>Titel: {$book['title']}, År: ({$book['year']}, Sidor: {$book['pages']}, Ämne: {$book['subject']}</li>";
         }
         echo "</ul>";
     }

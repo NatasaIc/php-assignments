@@ -4,7 +4,6 @@ require 'classes/book-view.php';
 require 'classes/book-model.php';
 
 $pdo = require 'partials/connect.php';
-
 $bookModel = new BookModel($pdo);
 $bookView = new BookView();
 

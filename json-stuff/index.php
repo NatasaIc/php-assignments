@@ -102,11 +102,11 @@ $students = [
 // MONSTER
 
 $monsters = [ 
-    'a' => 10, 
-    'b' => 20, 
-    'c' => 30,
+    // 'a' => 10, 
+    // 'b' => 20, 
+    // 'c' => 30,
     
-    "result" =>
+    // "result" =>
     [
         'name' => 'Monster 1',
         'color' => 'Green',

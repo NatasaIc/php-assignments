@@ -13,7 +13,7 @@ include 'partials/header.php';
 include 'partials/nav.php';
 
 // $bookView->renderAllBooksAsList($bookModel->getAllBooks());
-$bookView->renderAllBooksWithAuthorsAsList($bookModel->getAllBooksWithAuthors());
+$bookView->renderAllBooksAsLinks($bookModel->getAllBooksWithAuthors());
 
 include 'partials/book-form.php';
 

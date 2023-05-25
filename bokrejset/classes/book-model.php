@@ -2,21 +2,16 @@
 
 require_once 'db.php';
 
-class BookModel extends DB
-{
+class BookModel extends DB{
 
     protected $table = "books";
 
     public function getAllBooks()
     {
         return $this->getAll($this->table);
-        // $ass_array = $this->getAll($this->table);
-        // loopar igenom assarray och skapar Book-objekt
-        // lägger dessa i en array
-        // returnerar arrayen
     }
 
-    public function getAllBooksWithAuthors()
+    public function getAllBooksAsLinks()
     {
         $sql = "SELECT books.title,books.year,books.pages,books.subject,authors.first_name,authors.last_name FROM books JOIN authors ON books.author_id=authors.id";
         $statement = $this->pdo->prepare($sql);
@@ -25,7 +20,7 @@ class BookModel extends DB
     }
     public function addBook(string $title, int $year, int $pages, string $subject, int $authorId)
     {
-        $sql = "INSERT INTO {$this->table} (title,year,author_id) VALUES (?,?,?,?,?)";
+        $sql = "INSERT INTO {$this->table} (title, year, pages, subject, author_id) VALUES (?,?,?,?,?)";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$title, $year, $pages, $subject, $authorId]);
     }

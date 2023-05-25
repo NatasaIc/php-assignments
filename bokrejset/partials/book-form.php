@@ -11,8 +11,16 @@ $authorModel = new AuthorModel(connect($host, $db, $user, $password));
         <input type="text" name="title" id="title">
     </div>
     <div>
-        <label for="year">Publicerad år: </label>
+        <label for="year">Publicerad: </label>
         <input type="text" name="year" id="year">
+    </div>
+    <div>
+        <label for="year">Antal sidor: </label>
+        <input type="text" name="pages" id="pages">
+    </div>
+      <div>
+        <label for="year">Ämne: </label>
+        <input type="text" name="subject" id="subject">
     </div>
     <div>
         <label for="author">Författare:</label>

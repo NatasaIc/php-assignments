@@ -3,21 +3,19 @@
 class BookView
 {
 
-    public function renderAllBooksAsList(array $books): void
+    public function renderAllBooksAsLinks(array $books): void
     {
         echo "<ul>";
         foreach ($books as $book) {
-            echo "<li>Titel: {$book['title']}, År: ({$book['year']}, Sidor: {$book['pages']}, Ämne: {$book['subject']}</li>";
+            echo "<a href='?book-id={$book->getId()}'>{$book->getTitle()} ({$book->getYear()}) Sidor:{$book->getPages()} {$book->getAuthorToBook()}</a>";
         }
         echo "</ul>";
     }
 
-    public function renderAllBooksWithAuthorsAsList(array $books): void
-    {
-        echo "<ul>";
-        foreach ($books as $book) {
-            echo "<li>{$book['title']} av {$book['first_name']} {$book['last_name']} ({$book['year']})</li>";
-        }
-        echo "</ul>";
+     public function renderSingleBook (array $book):void {
+
+        echo "<h2>{$book[0]->getTitle()}</h2>";
+        echo "<h3>År: {$book[0]->getYear()}</h3>";
     }
+
 }

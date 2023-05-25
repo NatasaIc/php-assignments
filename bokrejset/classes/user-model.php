@@ -11,4 +11,5 @@ class UserModel extends DB
     {
         return $this->getAll($this->table);
     }
+
 }

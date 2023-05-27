@@ -7,7 +7,7 @@ class BookView
     {
         echo "<ul>";
         foreach ($books as $book) {
-            echo "<a href='?book-id={$book->getId()}'>{$book->getTitle()} ({$book->getYear()}) Sidor:{$book->getPages()} {$book->getAuthorToBook()}</a>";
+            echo "<a href='?book-id={$book->getId()}'>{$book->getTitle()} ({$book->getYear()}) Sidor:{$book->getPages()}</a>";
         }
         echo "</ul>";
     }

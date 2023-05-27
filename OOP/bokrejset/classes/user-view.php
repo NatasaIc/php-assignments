@@ -8,7 +8,7 @@ class UserView
         echo "<ol>";
         foreach ($users as $user) {
             echo "<li>";
-            echo "<a href='?id={$user["id"]}'>{$user['user_name']}</a>";
+            echo "<a href='?id={$user["id"]}'>{$user['username']}</a>";
             echo "</li>";
         }
         echo "</ol>";

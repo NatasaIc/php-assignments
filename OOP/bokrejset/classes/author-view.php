@@ -1,7 +1,7 @@
 <?php
 
 class AuthorView {
-    public function renderAllAuthors (array $authors) {
+    public function renderAllAuthorsAsLinks(array $authors) {
         foreach ($authors as $author) {
             echo "<a href='?author-id={$author->getId()}'>";
             echo "<div>{$author->getFirstName()} {$author->getLastName()}</div>";

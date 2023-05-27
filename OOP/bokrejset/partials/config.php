@@ -2,5 +2,5 @@
 
 $host = "localhost";
 $db = "bokrejset";
-$user  = "bokrejset";
-$password = "789abc";
+$user  = "root";
+$password = "500199";

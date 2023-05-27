@@ -1,7 +1,7 @@
 <?php
 
 require 'model/student-model.php';
-require 'view/student-api.php';
+require 'view/school-api.php';
 
 $studentModel = new StudentModel();
 $schoolApi = new SchoolApi();

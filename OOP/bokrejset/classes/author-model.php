@@ -1,8 +1,8 @@
 <?php
 
 require_once 'db.php';
-class AuthorModel extends DB
-{
+
+class AuthorModel extends DB {
 
     protected $table = "authors";
 
@@ -17,7 +17,7 @@ class AuthorModel extends DB
     }
 
     public function createAuthor($firstname, $lastname) {
-    $sql = "INSERT INTO $this->table (``first_name`, `last_name`) VALUES(?,?)";
+    $sql = "INSERT INTO $this->table (`first_name`, `last_name`) VALUES(?,?)";
     $statement = $this->pdo->prepare($sql);
     $statement->execute([$firstname, $lastname]);
 }
